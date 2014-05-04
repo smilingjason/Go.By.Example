@@ -21,6 +21,18 @@ func TestStructLiteral(t *testing.T) {
 	}
 }
 
+func TestNewOperation(t *testing.T) {
+	//new operator returns a pointer to the T
+	var pp *Person = new(Person)
+	if pp.name != "" {
+		t.Error("Should be empty right after 'new'")
+	}
+	out(pp)
+	if pp.name != "Jason(modified)" {
+		t.Error("pp.name should be changed!")
+	}
+}
+
 func output(p Person) {
 	p.name = "Jason(modified)"
 }
